@@ -38,7 +38,7 @@ fn main1(input: impl BufRead) -> Result<()> {
 
 fn main2(input: impl BufRead) -> Result<()> {
     let re = Regex::new(r"one|1|two|2|three|3|four|4|five|5|six|6|seven|7|eight|8|nine|9")?;
-    let re_set = RegexSet::new(&[
+    let re_set = RegexSet::new([
         r"one|1", r"two|2", r"three|3", r"four|4", r"five|5", r"six|6", r"seven|7", r"eight|8",
         r"nine|9",
     ])?;
@@ -69,8 +69,9 @@ fn main() -> Result<()> {
     match day {
         1 => main1(input),
         2 => main2(input),
-        _ => Ok({
+        _ => {
             println!("Oups");
-        }),
+            Ok(())
+        }
     }
 }
